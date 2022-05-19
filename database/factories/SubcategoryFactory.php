@@ -2,14 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\Site;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Favorite>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Subcategory>
  */
-class FavoriteFactory extends Factory
+class SubcategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,8 +17,7 @@ class FavoriteFactory extends Factory
     public function definition()
     {
         return [
-            'site_id' => Site::all()->random()->id,
-            'user_id' => User::all()->random()->id,
+            'name' => $this->faker->name(),
         ];
     }
 }

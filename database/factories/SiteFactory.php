@@ -6,7 +6,7 @@ use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Site>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\sites>
  */
 class SiteFactory extends Factory
 {
@@ -17,13 +17,17 @@ class SiteFactory extends Factory
      */
     public function definition()
     {
+        $images = [];
+        for ($i = 0; $i < rand(1,15); $i++) {
+            $images[] = $this->faker->imageUrl();
+        }
         return [
             'name' => $this->faker->name(),
             'description' => $this->faker->paragraph(),
-            'image' => $this->faker->imageUrl(),
+            'image' => $images,
             'longitude' => $this->faker->longitude(),
             'latitude' => $this->faker->latitude(),
-            'category_id' => Category::factory()->create()->id,
+            'category_id' => Category::all()->random()->id,
         ];
     }
 }

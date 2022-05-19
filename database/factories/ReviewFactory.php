@@ -19,10 +19,10 @@ class ReviewFactory extends Factory
     public function definition()
     {
         return [
-            'star' => $this->faker->number(1,2,3,4,5),
+            'star' => $this->faker->numberBetween([0,5]),
             'comment' => $this->faker->paragraph(),
-            'site_id' => Site::factory()->create()->id,
-            'user_id' => User::factory()->create()->id,
+            'site_id' => Site::all()->random()->id,
+            'user_id' => User::all()->random()->id,
         ];
     }
 }

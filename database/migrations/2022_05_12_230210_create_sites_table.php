@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->json('image');
+            $table->longText('image')->nullable();
             $table->string('latitude');
             $table->string('longitude');
-            $table->foreignId('category_id')->constrained();
+            $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
         });
     }

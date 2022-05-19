@@ -10,6 +10,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Site extends Model
 {
     use HasFactory;
+    protected $table='sites';
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'image' => 'array',
+    ];
 
     public function category(): BelongsTo
     {
