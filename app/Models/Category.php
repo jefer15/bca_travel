@@ -16,8 +16,8 @@ class Category extends Model
         return $this->hasMany(Site::class);
     }
 
-    public function subcategory(): BelongsTo
+    public function subcategories(): HasMany
     {
-        return $this->belongsTo(Subcategories::class);
+        return $this->hasMany(Subcategory::class);
     }
 }
