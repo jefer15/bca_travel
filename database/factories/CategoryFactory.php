@@ -18,7 +18,6 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'subcategory_id' => Subcategory::all()->random()->id,
             'name' => $this->faker->name(),
         ];
     }
