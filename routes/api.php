@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('/category', [CategoryController::class,'index']); //muestra todos los registros
+Route::post('/category', [CategoryController::class,'store']); // crea un registro
+Route::put('/category/{id}', [CategoryController::class,'update']); // actualiza un registro
+Route::delete('/category/{id}', [CategoryController::class,'destroy']); //elimina un registro

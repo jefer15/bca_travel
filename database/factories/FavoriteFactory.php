@@ -19,8 +19,8 @@ class FavoriteFactory extends Factory
     public function definition()
     {
         return [
-            'site_id' => Site::all()->random()->id,
-            'user_id' => User::all()->random()->id,
+            'site_id' => Site::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

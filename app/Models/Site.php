@@ -6,19 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Site extends Model
 {
     use HasFactory;
-    protected $table='sites';
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'image' => 'array',
-    ];
+    use SoftDeletes;
 
     public function category(): BelongsTo
     {
@@ -34,4 +27,6 @@ class Site extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    protected $guarded = [];
 }

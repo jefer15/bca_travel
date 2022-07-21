@@ -19,7 +19,7 @@ class SubcategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'category_id' => Category::all()->random()->id,
+            'category_id' => Category::factory(),
         ];
     }
 }

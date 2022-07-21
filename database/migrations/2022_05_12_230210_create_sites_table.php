@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->longText('description');
             $table->longText('image')->nullable();
             $table->string('latitude');
             $table->string('longitude');
             $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
